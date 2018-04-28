@@ -1091,12 +1091,17 @@ int bcm2835_init(void)
 	uint32_t mmap_base;
 	uint32_t mmap_seek;
 	volatile uint32_t *sunxi_tmp;
-	
+
+	/**
+	Armbian Kernel 4.x fix for Bananapi
+	*/
+	/*
 	if (1 != get_cpuinfo_revision()) 
 	{
 		fprintf(stderr, "bcm3825_init: The current version only support the BananaPro !\n");
 		goto exit;
 	}
+	*/
 	 // Open the master /dev/memory device
 	if ((memfd = open("/dev/mem", O_RDWR | O_SYNC) ) < 0) 
 	{
